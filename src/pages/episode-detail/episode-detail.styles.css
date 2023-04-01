@@ -1,0 +1,17 @@
+.EpisodeDetail {
+  display: flex;
+  flex: 1;
+}
+
+.EpisodeDetail .episode-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 36px;
+  padding: 24px;
+}
+
+.EpisodeDetail .episode-title {
+  font-weight: bold;
+  font-size: 20px;
+}
