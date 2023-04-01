@@ -10,7 +10,9 @@ export default function AppHeader() {
     <header className="AppHeader">
       <Link to="/" className="header-link" role="link">
         <img src={logo} className="header-logo" alt="logo" />
-        <h1 className="header-title">Podcaster</h1>
+        <h1 className="header-title" aria-label="Header title">
+          Podcaster
+        </h1>
       </Link>
       {/* Shows Loading spinner whenever navigation is not idle (submitting or loading) */}
       <div className="header-loader">{navigation.state !== 'idle' ? <LoadingSpinner /> : null}</div>
