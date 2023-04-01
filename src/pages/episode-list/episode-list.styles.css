@@ -1,0 +1,50 @@
+.EpisodeList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1;
+}
+
+.EpisodeList .episodes-count {
+  padding-left: 24px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.EpisodeList .episodes-table table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.EpisodeList .episodes-table th {
+  padding: 10px 24px;
+}
+
+.EpisodeList .episodes-table thead {
+  border-bottom: solid 1px #ccc;
+}
+
+.EpisodeList .episodes-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.EpisodeList .episodes-table tr:hover {
+  background-color: #eee;
+}
+
+.EpisodeList .episodes-table td,
+.EpisodeList .episodes-table th {
+  text-align: left;
+  padding: 12px 24px;
+  border-bottom: solid 1px #ccc;
+}
+
+.EpisodeList .episodes-table td:last-child {
+  text-align: right;
+}
+
+.EpisodeList .episodes-table a[role='link'] {
+  color: var(--action-color);
+  text-decoration: underline;
+}
