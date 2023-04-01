@@ -1,0 +1,19 @@
+.LoadingSpinner {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+}
+
+.LoadingSpinner .LoadingSpinner-svg {
+  width: 36px;
+  height: 36px;
+  color: #ddd;
+  fill: var(--action-color);
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+.LoadingSpinner .LoadingSpinner-text {
+  color: #000;
+}
