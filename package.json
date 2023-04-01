@@ -1,6 +1,6 @@
 {
   "name": "podcast-codetest",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "The best mini-app to listen to your favourite music podcasts",
   "main": "index.tsx",
   "author": "Iván Ros <@ivanros92>",
@@ -8,7 +8,8 @@
   "scripts": {
     "start": "webpack-dev-server --config=config/webpack.dev.js --hot",
     "build": "cross-env NODE_OPTIONS=--trace-deprecation webpack --config=config/webpack.prod.js",
-    "test": "jest"
+    "test": "jest",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "prop-types": "^15.8.1",
@@ -36,6 +37,7 @@
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.3",
     "css-minimizer-webpack-plugin": "^5.0.0",
+    "cypress": "^12.9.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.7",
     "enzyme-to-json": "^3.6.2",
