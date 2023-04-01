@@ -16,7 +16,7 @@ export default function App() {
   const { data, loading, error } = useFetch(
     'https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json',
   );
-  const { setPodcastList } = useContext<any>(PodcastContext);
+  const { setPodcastList } = useContext(PodcastContext);
 
   useEffect(() => {
     const podcasts = (data && data.feed && data.feed.entry) || [];

@@ -16,4 +16,6 @@ export interface Action {
 export const initialState = {
   podcastList: [],
   podcastEpisodes: {},
+  setPodcastList: () => {},
+  setPodcastEpisodes: () => {},
 };

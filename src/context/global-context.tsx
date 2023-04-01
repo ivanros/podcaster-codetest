@@ -8,7 +8,7 @@ interface GlobalProviderProps {
   children: ReactNode;
 }
 
-export const PodcastContext = createContext<Partial<GlobalContextType>>(initialState);
+export const PodcastContext = createContext<GlobalContextType>(initialState);
 
 export const GlobalProvider = (props: GlobalProviderProps) => {
   const { children } = props;
@@ -29,7 +29,7 @@ export const GlobalProvider = (props: GlobalProviderProps) => {
     },
   };
 
-  return (
-    <PodcastContext.Provider value={{ ...state, ...actions }}>{children}</PodcastContext.Provider>
-  );
+  const value = { ...state, ...actions };
+
+  return <PodcastContext.Provider value={value}>{children}</PodcastContext.Provider>;
 };

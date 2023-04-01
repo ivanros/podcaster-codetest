@@ -2,16 +2,17 @@ import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PodcastCard } from '../../components/podcast-card/podcast-card';
 import { PodcastContext } from '../../context/global-context';
+import { Podcast } from '../../models/entities/podcast';
 import './podcast-list.styles.css';
 
 export default function PodcastList() {
-  const [filteredPodcasts, setFilteredPodcasts] = useState<Array<any>>([]);
+  const [filteredPodcasts, setFilteredPodcasts] = useState<Array<Podcast>>([]);
   const [searchBy, setSearchBy] = useState<string>('');
-  const { podcastList } = useContext<any>(PodcastContext);
+  const { podcastList } = useContext(PodcastContext);
 
   useEffect(() => {
     const newPodcasts = podcastList.filter(
-      (podcast: any) =>
+      (podcast: Podcast) =>
         podcast['im:name'].label.toLowerCase().includes(searchBy.toLowerCase()) ||
         podcast['im:artist'].label.toLowerCase().includes(searchBy.toLowerCase()),
     );
@@ -32,7 +33,7 @@ export default function PodcastList() {
           />
         </div>
         <div className="podcast-grid">
-          {filteredPodcasts.map((podcast: any, index: number) => (
+          {filteredPodcasts.map((podcast: Podcast, index: number) => (
             <Link to={`/podcast/${podcast.id.attributes['im:id']}`} key={index} role="link">
               <PodcastCard
                 image={podcast['im:image'][podcast['im:image'].length - 1].label}
