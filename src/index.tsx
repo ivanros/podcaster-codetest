@@ -10,12 +10,14 @@ import './assets/styles/index.css';
 import ErrorBoundary from './components/error-boundary/error-boundary';
 import { GlobalProvider } from './context/global-context';
 import App from './pages/app/app';
+import PodcastDetail from './pages/podcast-detail/podcast-detail';
 import PodcastList from './pages/podcast-list/podcast-list';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />} errorElement={<ErrorBoundary />}>
       <Route path="/" element={<PodcastList />} />
+      <Route path="podcast" element={<PodcastDetail />}></Route>
     </Route>,
   ),
 );
