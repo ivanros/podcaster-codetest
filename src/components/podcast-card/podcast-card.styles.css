@@ -1,0 +1,41 @@
+.PodcastCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.PodcastCard:hover {
+  cursor: pointer;
+}
+
+.PodcastCard:hover .card-image {
+  transition: var(--fast-transition);
+  transform: scale(1.1);
+}
+
+.PodcastCard:hover .card-info {
+  transition: var(--fast-transition);
+  -webkit-box-shadow: 0px 2px 3px 0px #ccc;
+  -moz-box-shadow: 0px 2px 3px 0px #ccc;
+  box-shadow: 0px 2px 3px 0px #ccc;
+}
+
+.PodcastCard .card-image {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.PodcastCard .card-info {
+  display: flex;
+  flex-direction: column;
+  border: solid 1px #ccc;
+  border-radius: 10px;
+  padding: 12px 12px 12px 120px;
+  gap: 12px;
+}
+
+.PodcastCard .card-info .card-title {
+  font-weight: bold;
+}
