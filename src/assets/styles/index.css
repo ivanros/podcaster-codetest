@@ -1,5 +1,30 @@
+@import './variables.css';
+@import './animations.css';
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
 
 body {
   margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+hr {
+  width: 100%;
+  color: #fff;
+  margin: 18px 0;
+}
+
+.card {
+  padding: 12px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 2px 3px 0px #ccc;
+  -moz-box-shadow: 0px 2px 3px 0px #ccc;
+  box-shadow: 0px 2px 3px 0px #ccc;
+}
+
+* {
+  font-family: Roboto, sans-serif;
 }

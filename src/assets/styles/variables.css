@@ -1,0 +1,6 @@
+:root {
+  --main-color: rgba(51, 81, 106);
+  --action-color: rgba(124, 77, 161);
+  --fast-transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
+  --slow-transition: all cubic-bezier(0.4, 0, 0.2, 1) 500ms;
+}
