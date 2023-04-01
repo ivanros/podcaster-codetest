@@ -1,0 +1,40 @@
+.PodcastList .podcast-container {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  padding: 10px;
+}
+
+.PodcastList .podcast-container .podcast-filter {
+  display: flex;
+  align-self: flex-end;
+  align-items: center;
+  gap: 20px;
+}
+
+.PodcastList .podcast-container label[role='count'] {
+  background-color: var(--action-color);
+  color: #fff;
+  padding: 4px 7px;
+  border-radius: 7px;
+  font-size: 14px;
+}
+
+.PodcastList .podcast-container input[role='filter'] {
+  max-width: 200px;
+  padding: 7px 12px;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+}
+
+.PodcastList .podcast-container input[role='filter']:focus {
+  border-color: var(--main-color);
+  outline: solid 1px var(--main-color);
+}
+
+.PodcastList .podcast-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 10px 0;
+  gap: 112px 24px;
+}
