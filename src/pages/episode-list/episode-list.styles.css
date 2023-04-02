@@ -44,7 +44,12 @@
   text-align: right;
 }
 
-.EpisodeList .episodes-table a[role='link'] {
+.EpisodeList .episodes-table a {
   color: var(--action-color);
   text-decoration: underline;
+}
+
+.EpisodeList .episodes-table a:hover,
+.EpisodeList .episodes-table a:visited {
+  color: var(--main-color);
 }
