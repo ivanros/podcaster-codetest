@@ -17,7 +17,9 @@ export default function EpisodeList() {
 
   return (
     <div className="EpisodeList">
-      <div className="episodes-count card">Episodes: {episodes.length}</div>
+      <div className="episodes-count card">
+        Episodes: <span role="episodes-count">{episodes.length}</span>
+      </div>
       <div className="episodes-table card">
         {episodes.length > 0 ? (
           <table>
@@ -32,7 +34,10 @@ export default function EpisodeList() {
               {episodes.map((episode: Episode, index: number) => (
                 <tr key={index}>
                   <td>
-                    <Link to={`/podcast/${podcastId}/episode/${episode.trackId}`} role="link">
+                    <Link
+                      to={`/podcast/${podcastId}/episode/${episode.trackId}`}
+                      role="episode-link"
+                    >
                       {episode.trackName}
                     </Link>
                   </td>
