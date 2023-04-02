@@ -34,7 +34,7 @@ export default function PodcastList() {
         </div>
         <div className="podcast-grid">
           {filteredPodcasts.map((podcast: Podcast, index: number) => (
-            <Link to={`/podcast/${podcast.id.attributes['im:id']}`} key={index} role="link">
+            <Link to={`/podcast/${podcast.id.attributes['im:id']}`} key={index} role="podcast-link">
               <PodcastCard
                 image={podcast['im:image'][podcast['im:image'].length - 1].label}
                 title={podcast['im:name'].label}
