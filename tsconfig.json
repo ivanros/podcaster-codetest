@@ -14,8 +14,8 @@
     "jsx": "react-jsx",
     "incremental": true,
     "typeRoots": ["node_modules/@types", "src/declarations"],
-    "types": ["node", "jest", "webpack-env", "@testing-library/jest-dom"]
+    "types": ["node", "jest", "cypress", "webpack-env", "@testing-library/jest-dom"]
   },
   "include": ["jest.config.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "tests"]
 }

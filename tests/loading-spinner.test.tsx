@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom';
 import { act, render, screen, within } from '@testing-library/react';
+import React from 'react';
 import {
   LoadingSpinner,
   LOADING_TEXT_INTERVAL,
