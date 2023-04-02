@@ -52,6 +52,8 @@ Note: Cypress tests may fail if the API takes too long to respond. Also, bear in
 - A **generic error page** is displayed for any crashy error through an `ErrorBoundary`, so if you insert a non-existing URL you will be able to see it. Also, the error detail is only displayed in development mode.
 - A **custom hook** has been used to collect those requests made in each component in order to use the redirection of https://allorigins.win and also to treat the data, possible errors or the loading itself in a more reactive way.
 - The requests made to the podcast API by default already include in the response the **Cache-Control** header with a `stale-while-revalidate=86400`, which implies that the HTTP protocol will be responsible for returning the cached data to us for up to 1 day. Even so, I have decided to implement a **LRU cache** system in the hook itself, which allows us to specify an expiration and refresh time for our cached data, thus saving us from unnecessary requests or external API Cache-Control header changes.
+- The **IT tests** have been applied to a few components that I found most relevant to test with interactions as the more functional tests are complemented by the E2E tests.
+- The project **has not been dockerised or pipelined** with Github Actions, because it is not mentioned in the codetest document.
 
 ## Project structure
 
