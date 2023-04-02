@@ -21,23 +21,19 @@
   padding: 10px 24px;
 }
 
-.EpisodeList .episodes-table thead {
-  border-bottom: solid 1px #ccc;
+.EpisodeList .episodes-table tbody > tr:nth-child(even) {
+  background-color: rgba(51, 81, 106, 0.3);
 }
 
-.EpisodeList .episodes-table tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-.EpisodeList .episodes-table tr:hover {
-  background-color: #eee;
+.EpisodeList .episodes-table tbody > tr:hover {
+  background-color: rgba(51, 81, 106, 0.4);
 }
 
 .EpisodeList .episodes-table td,
 .EpisodeList .episodes-table th {
   text-align: left;
   padding: 12px 24px;
-  border-bottom: solid 1px #ccc;
+  border-bottom: solid 1px var(--shadow-color);
 }
 
 .EpisodeList .episodes-table td:last-child {
@@ -45,11 +41,11 @@
 }
 
 .EpisodeList .episodes-table a {
-  color: var(--action-color);
+  color: var(--secondary-color);
   text-decoration: underline;
 }
 
 .EpisodeList .episodes-table a:hover,
 .EpisodeList .episodes-table a:visited {
-  color: var(--main-color);
+  color: #bbb;
 }
