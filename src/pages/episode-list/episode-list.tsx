@@ -25,15 +25,21 @@ export default function EpisodeList() {
           <table>
             <thead>
               <tr>
-                <th scope="col">Title</th>
-                <th scope="col">Date</th>
-                <th scope="col">Duration</th>
+                <th scope="col" aria-label="Title header">
+                  Title
+                </th>
+                <th scope="col" aria-label="Date header">
+                  Date
+                </th>
+                <th scope="col" aria-label="Duration header">
+                  Duration
+                </th>
               </tr>
             </thead>
             <tbody>
               {episodes.map((episode: Episode, index: number) => (
                 <tr key={index}>
-                  <td>
+                  <td aria-label="Episode title">
                     <Link
                       to={`/podcast/${podcastId}/episode/${episode.trackId}`}
                       role="episode-link"
@@ -41,8 +47,12 @@ export default function EpisodeList() {
                       {episode.trackName}
                     </Link>
                   </td>
-                  <td>{new Date(episode.releaseDate).toLocaleDateString() || '-'}</td>
-                  <td>{millisToDateTime(episode.trackTimeMillis) || '-'}</td>
+                  <td aria-label="Episode date">
+                    {new Date(episode.releaseDate).toLocaleDateString() || '-'}
+                  </td>
+                  <td aria-label="Episode duration">
+                    {millisToDateTime(episode.trackTimeMillis) || '-'}
+                  </td>
                 </tr>
               ))}
             </tbody>
