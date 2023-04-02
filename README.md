@@ -51,14 +51,14 @@ Note: Cypress tests may fail if the API takes too long to respond. Also, bear in
 - **Multiple loaders** have been configured, both for the navigation load between the different existing pages and a dynamic load for each query to an endpoint, so I recommend testing the DevTools' Network throttling with **Slow 3G** to visualize the loaders at least one time. It is possible that if your computer is too fast it may be very difficult to see the navigation loader appear because, in this case, it depends on the speed at which the javascript is executed in your browser.
 - A **generic error page** is displayed for any crashy error through an `ErrorBoundary`, so if you insert a non-existing URL you will be able to see it. Also, the error detail is only displayed in development mode.
 - A **custom hook** has been used to collect those requests made in each component in order to use the redirection of https://allorigins.win and also to treat the data, possible errors or the loading itself in a more reactive way.
-- The requests made to the podcast API by default already include in the response the **Cache-Control** header with a `stale-while-revalidate=86400`, which implies that the only thing we have to do at UI level is to store this cached data in a variable and return it in case the same call is made.
+- The requests made to the podcast API by default already include in the response the **Cache-Control** header with a `stale-while-revalidate=86400`, which implies that the only thing we have to do at UI level is to store this cached data in a variable and return it in case the same call is made. In addition, all podcast information and episodes are stored in the **React Context**.
 
 ## Project structure
 
 Within the download you'll find the following directories and files following the `kebab-case` pattern:
 
 ```
-podcast-codetest
+podcaster-codetest
     ├── public
     ├── src
     │   ├── assets
