@@ -1,6 +1,9 @@
 :root {
-  --main-color: rgba(51, 81, 106);
-  --action-color: rgba(124, 77, 161);
+  --main-color: rgba(51, 81, 106, 1);
+  --action-color: rgba(124, 77, 161, 1);
+  --bg-main-color: rgba(30, 47, 65, 1);
+  --bg-secondary-color: rgba(51, 81, 106, 1);
+  --shadow-color: rgba(250, 250, 250, 0.3);
   --fast-transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
   --slow-transition: all cubic-bezier(0.4, 0, 0.2, 1) 500ms;
 }
