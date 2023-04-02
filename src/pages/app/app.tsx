@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import AppHeader from '../../components/app-header/app-header';
 import { LoadingSpinner } from '../../components/loading-spinner/loading-spinner';
 import { PodcastContext } from '../../context/global-context';
-import useFetch from '../../hooks/use-fetch';
+import useCachedFetch from '../../hooks/use-cached-fetch';
 import './app.styles.css';
 
 const LOADING_TEXTS = [
@@ -13,7 +13,7 @@ const LOADING_TEXTS = [
 ];
 
 export default function App() {
-  const { data, loading, error } = useFetch(
+  const { data, loading, error } = useCachedFetch(
     'https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json',
   );
   const { setPodcastList } = useContext(PodcastContext);

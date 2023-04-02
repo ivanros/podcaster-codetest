@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Link, Outlet, useParams } from 'react-router-dom';
 import { LoadingSpinner } from '../../components/loading-spinner/loading-spinner';
 import { PodcastContext } from '../../context/global-context';
-import useFetch from '../../hooks/use-fetch';
+import useCachedFetch from '../../hooks/use-cached-fetch';
 import { Podcast } from '../../models/entities/podcast';
 import './podcast-detail.styles.css';
 
@@ -11,7 +11,7 @@ const LOADING_TEXTS = ['Loading your episode...', 'Looking for newest tracks...'
 export default function PodcastDetail() {
   const [podcast, setPodcast] = useState<Podcast>();
   const { podcastId } = useParams();
-  const { data, loading } = useFetch(
+  const { data, loading } = useCachedFetch(
     `https://itunes.apple.com/lookup?id=${podcastId}&media=podcast&entity=podcastEpisode&limit=20`,
   );
   const { podcastList, podcastEpisodes, setPodcastEpisodes } = useContext(PodcastContext);
