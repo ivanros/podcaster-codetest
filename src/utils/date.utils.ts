@@ -4,8 +4,11 @@ function addLeadingZero(num: number | string): string {
 
 export function millisToDateTime(millis: number) {
   const date = new Date(millis);
-  const hours: string = date.getHours().toString();
-  const minutes: string = addLeadingZero(date.getMinutes());
-  const seconds: string = addLeadingZero(date.getSeconds());
-  return `${hours}:${minutes}:${seconds}`;
+  const hours: number = date.getHours();
+  const printHours: string = hours ? `${hours.toString()}:` : '';
+  const minutes: number = date.getMinutes();
+  const printMinutes: string = minutes ? `${addLeadingZero(minutes)}:` : '';
+  const seconds: number = date.getSeconds();
+  const printSeconds: string = seconds ? addLeadingZero(seconds) : '';
+  return `${printHours}${printMinutes}${printSeconds}`;
 }
