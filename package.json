@@ -1,12 +1,13 @@
 {
   "name": "podcast-codetest",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "The best mini-app to listen to your favourite music podcasts",
   "main": "index.tsx",
   "author": "Iván Ros <@ivanros92>",
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --config=config/webpack.dev.js --hot",
+    "start:prod": "webpack-dev-server --config=config/webpack.prod.js --hot",
     "build": "cross-env NODE_OPTIONS=--trace-deprecation webpack --config=config/webpack.prod.js",
     "test": "jest",
     "cypress": "cypress open"
