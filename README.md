@@ -11,6 +11,12 @@ yarn install #or npm install
 yarn start #or npm run start
 ```
 
+To run the production mode with minified and compressed CSS files
+
+```
+yarn start:prod #or npm run start:prod
+```
+
 To run the Jest test suite
 
 ```
@@ -29,6 +35,15 @@ To run pre-commit hook manually (you should have pre-commit installed)
 pre-commit install -f
 pre-commit run --all-files
 ```
+
+**E2E tests**
+
+1. Use `yarn cypress` (or `npm run cypress`) to run the Cypress interface
+2. Then press into the "E2E Testing" box
+3. You should continue pressing the button "Start E2E testing in Chrome" (or your preferred browser)
+4. A window will open with the project testing environment, then press on a test file and it will run the file tests. Try it as many times as you want by pressing the retry button.
+
+Note: Cypress tests may fail if the API takes too long to respond. Also, bear in mind that it runs very fast, so you will have to keep an eye on the trace it has at left side during execution.
 
 ## Developer considerations
 

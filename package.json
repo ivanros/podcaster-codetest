@@ -1,6 +1,6 @@
 {
-  "name": "podcast-codetest",
-  "version": "0.3.0",
+  "name": "podcaster-codetest",
+  "version": "0.3.1",
   "description": "The best mini-app to listen to your favourite music podcasts",
   "main": "index.tsx",
   "author": "Iván Ros <@ivanros92>",
