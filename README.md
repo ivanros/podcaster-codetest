@@ -46,14 +46,14 @@ pre-commit run --all-files
 
 ### E2E tests
 
-**Important**: it is necessary to have the application running with `start` or `start:prod` on another terminal so that cypress can use the launched application for the execution of the tests.
-
 1. Use `yarn cypress` (or `npm run cypress`) to run the Cypress interface
 2. Then press into the "E2E Testing" box
 3. You should continue pressing the button "Start E2E testing in Chrome" (or your preferred browser)
 4. A window will open with the project testing environment, then press on a test file and it will run the file tests. Try it as many times as you want by pressing the retry button.
 
 Note: Cypress tests may fail if the API takes too long to respond. Also, bear in mind that it runs very fast, so you will have to keep an eye on the trace it has at left side during execution.
+
+**Important**: it is necessary to have the application running with `start` or `start:prod` on another terminal so that cypress can use the launched application for the execution of the tests. In case you have problems connecting to localhost from cypress because of VPN or computer connections you can replace the `baseUrl` of `cypress.config.ts` with the following production URL: https://podcaster-codetest.netlify.app/
 
 ## Developer considerations
 
