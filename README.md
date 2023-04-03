@@ -46,7 +46,7 @@ pre-commit run --all-files
 
 ### E2E tests
 
-**Important**: it is necessary to have the application running with `start` or `start:prod` on another terminal so that the e2e tests can use the launched application for the execution of the tests.
+**Important**: it is necessary to have the application running with `start` or `start:prod` on another terminal so that cypress can use the launched application for the execution of the tests.
 
 1. Use `yarn cypress` (or `npm run cypress`) to run the Cypress interface
 2. Then press into the "E2E Testing" box
@@ -61,7 +61,7 @@ Note: Cypress tests may fail if the API takes too long to respond. Also, bear in
 - **Multiple loaders** have been configured, both for the navigation load between the different existing pages and a dynamic load for each query to an endpoint, so I recommend testing the DevTools' Network throttling with **Slow 3G** to visualize the loaders at least one time. It is possible that if your computer is too fast it may be very difficult to see the navigation loader appear because, in this case, it depends on the speed at which the javascript is executed in your browser.
 - A **generic error page** is displayed for any crashy error through an `ErrorBoundary`, so if you insert a non-existing URL you will be able to see it. Also, the error detail is only displayed in development mode.
 - A **custom hook** has been used to collect those requests made in each component in order to use the redirection of https://allorigins.win and also to treat the data, possible errors or the loading itself in a more reactive way.
-- The requests made to the podcast API by default already include in the response the **Cache-Control** header with a `stale-while-revalidate=86400`, which implies that the HTTP protocol will be responsible for returning the cached data to us for up to 1 day. Even so, I have decided to implement a **LRU cache** system in the hook itself, which allows us to specify an expiration and refresh time for our cached data, thus saving us from unnecessary requests or external API Cache-Control header changes.
+- Normally it is advisable to cache the response of the request with the **Cache-control** header on the server side, in fact the external API that is used already responds with a `stale-while-revalidate=86400`. As we don't have an API that acts as a proxy to control the _Cache-control_ header, what we have decided to do is to store the response in **localStorage with an expiration time** for the data. This way we can keep the data for a day since the last request was made without having to ask for the data every time the page is refreshed.
 - The **IT tests** have been applied to a few components that I found most relevant to test with interactions as the more functional tests are complemented by the E2E tests.
 - The project **has not been dockerised or pipelined** with Github Actions, because it is not mentioned in the codetest document.
 
