@@ -4,7 +4,7 @@ describe('Podcasts lifecycle', () => {
     cy.visit('/');
   });
 
-  it('should filter podcasts and then go to an episode and listen', () => {
+  it('should filter podcasts and then go to an episode and listen, then all data should be cached', () => {
     // Loading podcast list
     cy.get('div[role="loader"]').should('be.visible');
 
@@ -53,5 +53,32 @@ describe('Podcasts lifecycle', () => {
         audio.play();
         cy.waitForAudioPlaying();
       });
+  });
+
+  it('should cache all visited podcasts and episodes data with no need for requesting it again', () => {
+    // Loading appears at the first podcasts call as it is not cached already
+    cy.get('div[role="loader"]').should('be.visible');
+
+    cy.get('a[role="podcast-link"]').first().click();
+
+    // Loading appears at the first episodes call as it is not cached already
+    cy.get('div[role="loader"]').should('be.visible');
+
+    cy.get('a[role="episode-link"]').first().click();
+    cy.get('div[aria-label="Episode description"]').should('be.visible');
+
+    /* Testing that previous visited podcasts and episodes are cached */
+    cy.visit('/');
+
+    // Loading does not exist because podcasts data is already cached
+    cy.get('div[role="loader"]').should('not.exist');
+
+    cy.get('a[role="podcast-link"]').first().click();
+
+    // Loading does not exist because episodes data is already cached
+    cy.get('div[role="loader"]').should('not.exist');
+
+    cy.get('a[role="episode-link"]').first().click();
+    cy.get('div[aria-label="Episode description"]').should('be.visible');
   });
 });
