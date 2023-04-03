@@ -75,13 +75,12 @@ podcaster-codetest
     ├── src
     │   ├── assets
     │   ├── components
-    │   ├── comtext
+    │   ├── context
     │   ├── hooks
     │   ├── models
     │   ├── pages
     │   ├── utils
     │   └── index.js
-    ├── .babelrc
     ├── .eslintrc
     ├── .pre-commit-config.yaml
     ├── .prettierrc
