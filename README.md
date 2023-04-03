@@ -1,15 +1,23 @@
-**Introduction**
+## Welcome to Podcaster
 
 Welcome to Podcaster, a platform where the best music podcasts from around the globe are gathered.
 
-**How to launch**
+### Minimal versions
+
+Node v16.0.0 or higher
+NPM v8.0.0 or higher
+Yarn v1.20.0 or higher
+
+### How to launch
 
 After entering the project through any terminal, execute the following commands
 
 ```
-yarn install #or npm install
+yarn install #or npm ci
 yarn start #or npm run start
 ```
+
+Note: All versions are pre-fixed so you won't have version compatibility issues not matter which version of Node, npm or yarn you use. I still recommend using `npm ci` instead of `npm install`.
 
 To run the production mode with minified and compressed CSS files
 
@@ -36,7 +44,9 @@ pre-commit install -f
 pre-commit run --all-files
 ```
 
-**E2E tests**
+### E2E tests
+
+**Important**: it is necessary to have the application running with `start` or `start:prod` on another terminal so that the e2e tests can use the launched application for the execution of the tests.
 
 1. Use `yarn cypress` (or `npm run cypress`) to run the Cypress interface
 2. Then press into the "E2E Testing" box
