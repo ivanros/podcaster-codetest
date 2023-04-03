@@ -4,9 +4,9 @@ Welcome to Podcaster, a platform where the best music podcasts from around the g
 
 ### Minimal versions
 
-Node v16.0.0 or higher
-NPM v8.0.0 or higher
-Yarn v1.20.0 or higher
+> **Node** v16.0.0 or higher\
+> **NPM** v8.0.0 or higher\
+> **Yarn** v1.20.0 or higher
 
 ### How to launch
 
