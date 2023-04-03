@@ -1,22 +1,10 @@
-import LRUCache from 'lru-cache';
 import { useEffect, useRef, useState } from 'react';
+import { getCachedStorage, setCachedStorage } from '../utils/cached-storage';
 
-const optionsCache = {
-  max: 5,
-  // Cache data for 1 day
-  ttl: 3600 * 24,
-  // return stale items before removing from cache?
-  allowStale: true,
-  updateAgeOnGet: false,
-  updateAgeOnHas: false,
-  noDeleteOnStaleGet: true,
-};
-
-const cache = new LRUCache(optionsCache);
+const PROXY_API_URL = 'https://api.allorigins.win';
 
 /**
  * This hook calls an URL with no-CORS validation and returns response and the state
- * By default data is cached by LRU cache system
  * @param reqUrl requested url
  * @param options request options
  * @returns {object} with requested data, loading state and error
@@ -32,34 +20,34 @@ export default function useCachedFetch(reqUrl: string, options: RequestInit = {}
     // Ensures that url is called only once
     prevUrl.current = reqUrl;
     // Use of allorigins redirection to allow no-CORS external resources
-    const url = `https://api.allorigins.win/get?url=${encodeURIComponent(reqUrl)}`;
+    const url = `${PROXY_API_URL}/get?url=${encodeURIComponent(reqUrl)}`;
 
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await fetch(url, options);
+        // Sets no-store cache so our localStorage can handle it by itself
+        const response = await fetch(url, { ...options, cache: 'no-store' });
         if (!response.ok) {
           throw new Error(`HTTP error status: ${response.status}`);
         }
         const json = await response.json();
-        const newData = JSON.parse(json.contents);
-        cache.set(url, newData);
-        setData(newData);
-        setLoading(false);
+        const parsedData = JSON.parse(json.contents);
+        setCachedStorage(reqUrl, parsedData);
+        setData(parsedData);
         setError(null);
       } catch (error: unknown) {
         // This catches the error if either of the promises fails or the manual error is thrown
-        setLoading(false);
         const message = error instanceof Error ? error.message : 'Unknown error.';
         setError(message);
       }
+      setLoading(false);
     };
 
-    // Request is made whenever there is no cached data or TTL time is over
-    if (!cache.has(url) || cache.getRemainingTTL(url) <= 0) {
+    const cachedData = getCachedStorage(reqUrl);
+    if (cachedData === null) {
       fetchData();
     } else {
-      setData(cache.get(url));
+      setData(cachedData);
     }
   }, [reqUrl, options]);
 
