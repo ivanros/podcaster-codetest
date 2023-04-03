@@ -49,3 +49,14 @@
 .EpisodeList .episodes-table a:visited {
   color: #bbb;
 }
+
+@media only screen and (max-width: 600px) {
+  .EpisodeList .card {
+    padding: 24px;
+  }
+
+  .EpisodeList .episodes-table {
+    overflow: hidden;
+    overflow-x: auto;
+  }
+}
