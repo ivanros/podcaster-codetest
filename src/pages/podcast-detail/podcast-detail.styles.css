@@ -45,3 +45,14 @@
   flex: 1;
   justify-content: center;
 }
+
+@media only screen and (max-width: 600px) {
+  .PodcastDetail {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .PodcastDetail .podcast-info {
+    width: inherit;
+  }
+}
