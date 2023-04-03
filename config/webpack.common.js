@@ -29,11 +29,6 @@ module.exports = {
         use: [{ loader: 'ts-loader' }],
       },
       {
-        test: /\.js$/,
-        exclude: [/node_modules/],
-        use: [{ loader: 'babel-loader' }],
-      },
-      {
         test: /.*\.(gif|png|jp(e*)g|svg)$/i,
         use: [
           {
